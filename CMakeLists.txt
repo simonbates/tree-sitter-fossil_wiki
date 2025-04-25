@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 project(tree-sitter-fossil-wiki
         VERSION "0.1.0"
         DESCRIPTION "FossilWiki grammar for tree-sitter"
-        HOMEPAGE_URL "https://github.com/tree-sitter/tree-sitter-fossil_wiki"
+        HOMEPAGE_URL "https://github.com/simonbates/tree-sitter-fossil_wiki"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
