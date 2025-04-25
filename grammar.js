@@ -40,8 +40,7 @@ function generateRulesForHTMLElement(targetObj, elementName) {
   // Start tag
   targetObj[startTagRuleName] = function($) {
     return seq(
-      "<",
-      alias(new RegExp(elementName, "i"), $.html_tag_name),
+      alias(new RegExp("<" + elementName, "i"), $.html_tag_name),
       repeat($.html_attribute),
       ">"
     );
@@ -50,8 +49,7 @@ function generateRulesForHTMLElement(targetObj, elementName) {
   // End tag
   targetObj[endTagRuleName] = function($) {
     return seq(
-      "</",
-      alias(new RegExp(elementName, "i"), $.html_tag_name),
+      alias(new RegExp("<\\/" + elementName, "i"), $.html_tag_name),
       ">"
     );
   };
@@ -66,7 +64,7 @@ for (const elementName of supportedHTMLElements) {
 module.exports = grammar({
   name: "fossil_wiki",
 
-  externals: $ => [$.verbatim],
+  externals: $ => [$.verbatim_content],
 
   rules: {
     document: $ => repeat($._wiki_markup),
@@ -112,6 +110,22 @@ module.exports = grammar({
     html_attribute_value_single_quoted: $ => /[^']*/,
 
     html_attribute_value_double_quoted: $ => /[^"]*/,
+
+    verbatim: $ => seq(
+      $.verbatim_start_tag,
+      optional($.verbatim_content),
+      $.verbatim_end_tag
+    ),
+
+    verbatim_start_tag: $ => seq(
+      /<verbatim/i,
+      ">"
+    ),
+
+    verbatim_end_tag: $ => seq(
+      /<\/verbatim/i,
+      ">"
+    ),
 
     link: $ => seq(
       "[",

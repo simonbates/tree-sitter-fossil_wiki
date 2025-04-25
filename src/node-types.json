@@ -135,19 +135,44 @@
     }
   },
   {
+    "type": "verbatim",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "verbatim_content",
+          "named": true
+        },
+        {
+          "type": "verbatim_end_tag",
+          "named": true
+        },
+        {
+          "type": "verbatim_start_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "verbatim_end_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "verbatim_start_tag",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\"",
     "named": false
   },
   {
     "type": "'",
-    "named": false
-  },
-  {
-    "type": "<",
-    "named": false
-  },
-  {
-    "type": "</",
     "named": false
   },
   {
@@ -191,7 +216,7 @@
     "named": true
   },
   {
-    "type": "verbatim",
+    "type": "verbatim_content",
     "named": true
   },
   {
