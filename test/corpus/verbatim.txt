@@ -1,0 +1,81 @@
+==============
+Empty verbatim
+==============
+
+<verbatim></verbatim>
+
+---
+
+(document
+  (text)
+  (verbatim)
+  (text))
+
+===================================
+Markup is ignored inside a verbatim
+===================================
+
+<verbatim>
+
+[foo]
+
+<title>foo</title>
+
+</verbatim>
+
+---
+
+(document
+  (text)
+  (verbatim)
+  (text))
+
+===============
+Missing end tag
+===============
+
+<verbatim>
+
+---
+
+(document
+  (text)
+  (ERROR
+    (ERROR
+      (UNEXPECTED 'v'))
+    (html_tag_name)
+    (html_attribute_name))
+  (text))
+
+=========================================
+Verbatim scanning marks the end correctly
+=========================================
+
+<verbatim></verbatim>[foo]
+
+---
+
+(document
+  (text)
+  (verbatim)
+  (link
+    (link_target))
+  (text))
+
+====================================================
+Verbatim scanning waits for the whole of the end tag
+====================================================
+
+<verbatim>
+</verbatim
+<title>foo</title>
+</verbatim>[foo]
+
+---
+
+(document
+  (text)
+  (verbatim)
+  (link
+    (link_target))
+  (text))

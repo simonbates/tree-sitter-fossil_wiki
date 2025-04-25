@@ -1,0 +1,139 @@
+=============
+Empty element
+=============
+
+<title></title>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+====================
+Element with content
+====================
+
+<title>hello world</title>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+======================================
+Element tag names are case-insensitive
+======================================
+
+<Title>hello world</titlE>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+============================================
+Element with a single-quoted attribute value
+============================================
+
+<a href='foo'>bar</a>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+============================================
+Element with a double-quoted attribute value
+============================================
+
+<a href="foo">bar</a>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+================================
+Element with multiple attributes
+================================
+
+<p class="foo" style="bar">hello world</p>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value))
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+====================================
+Attribute names are case-insensitive
+====================================
+
+<a HrEf="foo">bar</a>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
