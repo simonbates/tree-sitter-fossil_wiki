@@ -40,7 +40,8 @@ function generateRulesForHTMLElement(targetObj, elementName) {
   // Start tag
   targetObj[startTagRuleName] = function($) {
     return seq(
-      alias(new RegExp("<" + elementName, "i"), $.html_tag_name),
+      "<",
+      alias(new RegExp(elementName, "i"), $.html_tag_name),
       repeat($.html_attribute),
       ">"
     );
@@ -49,7 +50,8 @@ function generateRulesForHTMLElement(targetObj, elementName) {
   // End tag
   targetObj[endTagRuleName] = function($) {
     return seq(
-      alias(new RegExp("<\\/" + elementName, "i"), $.html_tag_name),
+      "</",
+      alias(new RegExp(elementName, "i"), $.html_tag_name),
       ">"
     );
   };
@@ -118,12 +120,14 @@ module.exports = grammar({
     ),
 
     verbatim_start_tag: $ => seq(
-      /<verbatim/i,
+      "<",
+      /verbatim/i,
       ">"
     ),
 
     verbatim_end_tag: $ => seq(
-      /<\/verbatim/i,
+      "</",
+      /verbatim/i,
       ">"
     ),
 

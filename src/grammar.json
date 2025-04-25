@@ -113,10 +113,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<a",
+            "value": "a",
             "flags": "i"
           },
           "named": true,
@@ -139,10 +143,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/a",
+            "value": "a",
             "flags": "i"
           },
           "named": true,
@@ -188,10 +196,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<code",
+            "value": "code",
             "flags": "i"
           },
           "named": true,
@@ -214,10 +226,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/code",
+            "value": "code",
             "flags": "i"
           },
           "named": true,
@@ -263,10 +279,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h1",
+            "value": "h1",
             "flags": "i"
           },
           "named": true,
@@ -289,10 +309,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h1",
+            "value": "h1",
             "flags": "i"
           },
           "named": true,
@@ -338,10 +362,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h2",
+            "value": "h2",
             "flags": "i"
           },
           "named": true,
@@ -364,10 +392,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h2",
+            "value": "h2",
             "flags": "i"
           },
           "named": true,
@@ -413,10 +445,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h3",
+            "value": "h3",
             "flags": "i"
           },
           "named": true,
@@ -439,10 +475,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h3",
+            "value": "h3",
             "flags": "i"
           },
           "named": true,
@@ -488,10 +528,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h4",
+            "value": "h4",
             "flags": "i"
           },
           "named": true,
@@ -514,10 +558,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h4",
+            "value": "h4",
             "flags": "i"
           },
           "named": true,
@@ -563,10 +611,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h5",
+            "value": "h5",
             "flags": "i"
           },
           "named": true,
@@ -589,10 +641,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h5",
+            "value": "h5",
             "flags": "i"
           },
           "named": true,
@@ -638,10 +694,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<h6",
+            "value": "h6",
             "flags": "i"
           },
           "named": true,
@@ -664,10 +724,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/h6",
+            "value": "h6",
             "flags": "i"
           },
           "named": true,
@@ -713,10 +777,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<p",
+            "value": "p",
             "flags": "i"
           },
           "named": true,
@@ -739,10 +807,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/p",
+            "value": "p",
             "flags": "i"
           },
           "named": true,
@@ -788,10 +860,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<title",
+            "value": "title",
             "flags": "i"
           },
           "named": true,
@@ -814,10 +890,14 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "<\\/title",
+            "value": "title",
             "flags": "i"
           },
           "named": true,
@@ -932,8 +1012,12 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
           "type": "PATTERN",
-          "value": "<verbatim",
+          "value": "verbatim",
           "flags": "i"
         },
         {
@@ -946,8 +1030,12 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
           "type": "PATTERN",
-          "value": "<\\/verbatim",
+          "value": "verbatim",
           "flags": "i"
         },
         {
