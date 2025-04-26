@@ -51,9 +51,9 @@ Element tag names are case-insensitive
       (html_tag_name)))
   (text))
 
-====
-<br>
-====
+============
+<br> element
+============
 
 line one<br>line two<br>line three
 
