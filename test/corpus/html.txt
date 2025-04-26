@@ -51,6 +51,25 @@ Element tag names are case-insensitive
       (html_tag_name)))
   (text))
 
+====
+<br>
+====
+
+line one<br>line two<br>line three
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)))
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)))
+  (text))
+
 ============================================
 Element with a single-quoted attribute value
 ============================================

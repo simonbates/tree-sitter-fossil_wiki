@@ -10,17 +10,19 @@
 // Fossil source code for formatting wiki text:
 // https://fossil-scm.org/home/file?name=src/wikiformat.c&ci=trunk
 
+// element name, has end tag
 const supportedHTMLElements = [
-  "a",
-  "code",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "p",
-  "title"
+  ["a", true],
+  ["br", false],
+  ["code", true],
+  ["h1", true],
+  ["h2", true],
+  ["h3", true],
+  ["h4", true],
+  ["h5", true],
+  ["h6", true],
+  ["p", true],
+  ["title", true]
 ];
 
 class HTMLElementRulesGenerator {
@@ -29,47 +31,64 @@ class HTMLElementRulesGenerator {
     this.elementRuleNames = [];
   }
 
-  addRulesForElement(elementName) {
+  addRulesForElement(elementName, hasEndTag) {
     const elementRuleName = `_html_element_${elementName}`;
     const startTagRuleName = `html_start_tag_${elementName}`;
     const endTagRuleName = `html_end_tag_${elementName}`;
 
     this.elementRuleNames.push(elementRuleName);
 
-    // Element
-    this.rules[elementRuleName] = function($) {
-      return seq(
-        alias($[startTagRuleName], $.html_start_tag),
-        repeat($._wiki_markup),
-        alias($[endTagRuleName], $.html_end_tag)
-      );
-    };
+    if (hasEndTag) {
+      // Element
+      this.rules[elementRuleName] = function($) {
+        return seq(
+          alias($[startTagRuleName], $.html_start_tag),
+          repeat($._wiki_markup),
+          alias($[endTagRuleName], $.html_end_tag)
+        );
+      };
 
-    // Start tag
-    this.rules[startTagRuleName] = function($) {
-      return seq(
-        "<",
-        alias(new RegExp(elementName, "i"), $.html_tag_name),
-        repeat($.html_attribute),
-        ">"
-      );
-    };
+      // Start tag
+      this.rules[startTagRuleName] = function($) {
+        return seq(
+          "<",
+          alias(new RegExp(elementName, "i"), $.html_tag_name),
+          repeat($.html_attribute),
+          ">"
+        );
+      };
 
-    // End tag
-    this.rules[endTagRuleName] = function($) {
-      return seq(
-        "</",
-        alias(new RegExp(elementName, "i"), $.html_tag_name),
-        ">"
-      );
-    };
+      // End tag
+      this.rules[endTagRuleName] = function($) {
+        return seq(
+          "</",
+          alias(new RegExp(elementName, "i"), $.html_tag_name),
+          ">"
+        );
+      };
+    } else {
+      // Element
+      this.rules[elementRuleName] = function($) {
+        return alias($[startTagRuleName], $.html_start_tag);
+      };
+
+      // Start tag
+      this.rules[startTagRuleName] = function($) {
+        return seq(
+          "<",
+          alias(new RegExp(elementName, "i"), $.html_tag_name),
+          repeat($.html_attribute),
+          ">"
+        );
+      };
+    }
   }
 }
 
 const htmlElementRulesGenerator = new HTMLElementRulesGenerator();
 
-for (const elementName of supportedHTMLElements) {
-  htmlElementRulesGenerator.addRulesForElement(elementName);
+for (const [elementName, hasEndTag] of supportedHTMLElements) {
+  htmlElementRulesGenerator.addRulesForElement(elementName, hasEndTag);
 }
 
 module.exports = grammar({

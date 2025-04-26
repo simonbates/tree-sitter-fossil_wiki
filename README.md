@@ -5,7 +5,6 @@ Work in progress.
 ## TODO
 
 - Implement all Fossil Wiki supported HTML elements
-- HTML elements without a closing tag, such as `<br>`
 - HTML empty attribute syntax
 - HTML unquoted attribute value syntax
 - Implement `<nowiki>`
