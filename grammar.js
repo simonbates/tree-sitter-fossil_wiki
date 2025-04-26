@@ -23,44 +23,53 @@ const supportedHTMLElements = [
   "title"
 ];
 
-function generateRulesForHTMLElement(targetObj, elementName) {
-  const elementRuleName = `_html_element_${elementName}`;
-  const startTagRuleName = `html_start_tag_${elementName}`;
-  const endTagRuleName = `html_end_tag_${elementName}`;
+class HTMLElementRulesGenerator {
+  constructor() {
+    this.rules = {};
+    this.elementRuleNames = [];
+  }
 
-  // Element
-  targetObj[elementRuleName] = function($) {
-    return seq(
-      alias($[startTagRuleName], $.html_start_tag),
-      repeat($._wiki_markup),
-      alias($[endTagRuleName], $.html_end_tag)
-    );
-  };
+  addRulesForElement(elementName) {
+    const elementRuleName = `_html_element_${elementName}`;
+    const startTagRuleName = `html_start_tag_${elementName}`;
+    const endTagRuleName = `html_end_tag_${elementName}`;
 
-  // Start tag
-  targetObj[startTagRuleName] = function($) {
-    return seq(
-      "<",
-      alias(new RegExp(elementName, "i"), $.html_tag_name),
-      repeat($.html_attribute),
-      ">"
-    );
-  };
+    this.elementRuleNames.push(elementRuleName);
 
-  // End tag
-  targetObj[endTagRuleName] = function($) {
-    return seq(
-      "</",
-      alias(new RegExp(elementName, "i"), $.html_tag_name),
-      ">"
-    );
-  };
+    // Element
+    this.rules[elementRuleName] = function($) {
+      return seq(
+        alias($[startTagRuleName], $.html_start_tag),
+        repeat($._wiki_markup),
+        alias($[endTagRuleName], $.html_end_tag)
+      );
+    };
+
+    // Start tag
+    this.rules[startTagRuleName] = function($) {
+      return seq(
+        "<",
+        alias(new RegExp(elementName, "i"), $.html_tag_name),
+        repeat($.html_attribute),
+        ">"
+      );
+    };
+
+    // End tag
+    this.rules[endTagRuleName] = function($) {
+      return seq(
+        "</",
+        alias(new RegExp(elementName, "i"), $.html_tag_name),
+        ">"
+      );
+    };
+  }
 }
 
-const htmlElementRules = {};
+const htmlElementRulesGenerator = new HTMLElementRulesGenerator();
 
 for (const elementName of supportedHTMLElements) {
-  generateRulesForHTMLElement(htmlElementRules, elementName);
+  htmlElementRulesGenerator.addRulesForElement(elementName);
 }
 
 module.exports = grammar({
@@ -75,20 +84,13 @@ module.exports = grammar({
 
     text: $ => /[^<\[]+/,
 
-    html_element: $ => choice(
-      $._html_element_a,
-      $._html_element_code,
-      $._html_element_h1,
-      $._html_element_h2,
-      $._html_element_h3,
-      $._html_element_h4,
-      $._html_element_h5,
-      $._html_element_h6,
-      $._html_element_p,
-      $._html_element_title
-    ),
+    // Define html_element as a choice between the rules generated for
+    // HTML elements
+    html_element: $ => choice.apply(null,
+      htmlElementRulesGenerator.elementRuleNames.map(ruleName => $[ruleName])),
 
-    ...htmlElementRules,
+    // Merge in the generated HTML element rules
+    ...(htmlElementRulesGenerator.rules),
 
     html_attribute: $ => seq(
       $.html_attribute_name,
