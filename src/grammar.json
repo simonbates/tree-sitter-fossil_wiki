@@ -1016,9 +1016,14 @@
           "value": "<"
         },
         {
-          "type": "PATTERN",
-          "value": "verbatim",
-          "flags": "i"
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "verbatim",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
         },
         {
           "type": "STRING",
@@ -1034,9 +1039,14 @@
           "value": "</"
         },
         {
-          "type": "PATTERN",
-          "value": "verbatim",
-          "flags": "i"
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "verbatim",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
         },
         {
           "type": "STRING",

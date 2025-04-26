@@ -9,8 +9,10 @@ Empty verbatim
 (document
   (text)
   (verbatim
-    (verbatim_start_tag)
-    (verbatim_end_tag))
+    (verbatim_start_tag
+      (html_tag_name))
+    (verbatim_end_tag
+      (html_tag_name)))
   (text))
 
 ===================================
@@ -30,9 +32,11 @@ Markup is ignored inside a verbatim
 (document
   (text)
   (verbatim
-    (verbatim_start_tag)
+    (verbatim_start_tag
+      (html_tag_name))
     (verbatim_content)
-    (verbatim_end_tag))
+    (verbatim_end_tag
+      (html_tag_name)))
   (text))
 
 ===============
@@ -46,7 +50,8 @@ Missing end tag
 (document
   (text)
   (ERROR
-    (verbatim_start_tag)))
+    (verbatim_start_tag
+      (html_tag_name))))
 
 =========================================
 Verbatim scanning marks the end correctly
@@ -59,8 +64,10 @@ Verbatim scanning marks the end correctly
 (document
   (text)
   (verbatim
-    (verbatim_start_tag)
-    (verbatim_end_tag))
+    (verbatim_start_tag
+      (html_tag_name))
+    (verbatim_end_tag
+      (html_tag_name)))
   (link
     (link_target))
   (text))
@@ -79,9 +86,11 @@ Verbatim scanning waits for the whole of the end tag
 (document
   (text)
   (verbatim
-    (verbatim_start_tag)
+    (verbatim_start_tag
+      (html_tag_name))
     (verbatim_content)
-    (verbatim_end_tag))
+    (verbatim_end_tag
+      (html_tag_name)))
   (link
     (link_target))
   (text))

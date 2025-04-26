@@ -121,13 +121,13 @@ module.exports = grammar({
 
     verbatim_start_tag: $ => seq(
       "<",
-      /verbatim/i,
+      alias(/verbatim/i, $.html_tag_name),
       ">"
     ),
 
     verbatim_end_tag: $ => seq(
       "</",
-      /verbatim/i,
+      alias(/verbatim/i, $.html_tag_name),
       ">"
     ),
 
