@@ -8,6 +8,7 @@ Work in progress.
 - HTML elements without a closing tag, such as `<br>`
 - HTML empty attribute syntax
 - HTML unquoted attribute value syntax
+- Implement `<nowiki>`
 - Case-insensitive `<verbatim>` tag names
 - Handle whitespace at the end of the `</verbatim >` end tag
 - Ensure that nesting of content is consistent with the Fossil Wiki parser
