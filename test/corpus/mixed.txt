@@ -1,0 +1,46 @@
+==================================
+Wiki link inside an HTML list item
+==================================
+
+<ul>
+  <li>[foo|bar]</li>
+</ul>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_element
+      (html_start_tag
+        (html_tag_name))
+      (link
+        (link_target)
+        (link_text))
+      (html_end_tag
+        (html_tag_name)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+===================================
+Inline HTML inside a wiki list item
+===================================
+
+  *  <strong>strong text</strong> inside a wiki list item
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))

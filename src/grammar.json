@@ -51,6 +51,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_html_element_em"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_html_element_h1"
         },
         {
@@ -75,11 +79,27 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_html_element_li"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_html_element_ol"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_html_element_p"
         },
         {
           "type": "SYMBOL",
+          "name": "_html_element_strong"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_html_element_title"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_html_element_ul"
         }
       ]
     },
@@ -277,6 +297,89 @@
           "content": {
             "type": "PATTERN",
             "value": "code",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "_html_element_em": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_start_tag_em"
+          },
+          "named": true,
+          "value": "html_start_tag"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_wiki_markup"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_end_tag_em"
+          },
+          "named": true,
+          "value": "html_end_tag"
+        }
+      ]
+    },
+    "html_start_tag_em": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "em",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_attribute"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "html_end_tag_em": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "em",
             "flags": "i"
           },
           "named": true,
@@ -786,6 +889,172 @@
         }
       ]
     },
+    "_html_element_li": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_start_tag_li"
+          },
+          "named": true,
+          "value": "html_start_tag"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_wiki_markup"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_end_tag_li"
+          },
+          "named": true,
+          "value": "html_end_tag"
+        }
+      ]
+    },
+    "html_start_tag_li": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "li",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_attribute"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "html_end_tag_li": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "li",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "_html_element_ol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_start_tag_ol"
+          },
+          "named": true,
+          "value": "html_start_tag"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_wiki_markup"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_end_tag_ol"
+          },
+          "named": true,
+          "value": "html_end_tag"
+        }
+      ]
+    },
+    "html_start_tag_ol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "ol",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_attribute"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "html_end_tag_ol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "ol",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
     "_html_element_p": {
       "type": "SEQ",
       "members": [
@@ -869,6 +1138,89 @@
         }
       ]
     },
+    "_html_element_strong": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_start_tag_strong"
+          },
+          "named": true,
+          "value": "html_start_tag"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_wiki_markup"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_end_tag_strong"
+          },
+          "named": true,
+          "value": "html_end_tag"
+        }
+      ]
+    },
+    "html_start_tag_strong": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "strong",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_attribute"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "html_end_tag_strong": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "strong",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
     "_html_element_title": {
       "type": "SEQ",
       "members": [
@@ -941,6 +1293,89 @@
           "content": {
             "type": "PATTERN",
             "value": "title",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "_html_element_ul": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_start_tag_ul"
+          },
+          "named": true,
+          "value": "html_start_tag"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_wiki_markup"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_end_tag_ul"
+          },
+          "named": true,
+          "value": "html_end_tag"
+        }
+      ]
+    },
+    "html_start_tag_ul": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "ul",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "html_tag_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "html_attribute"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "html_end_tag_ul": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "ul",
             "flags": "i"
           },
           "named": true,

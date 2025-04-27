@@ -51,25 +51,6 @@ Element tag names are case-insensitive
       (html_tag_name)))
   (text))
 
-============
-<br> element
-============
-
-line one<br>line two<br>line three
-
----
-
-(document
-  (text)
-  (html_element
-    (html_start_tag
-      (html_tag_name)))
-  (text)
-  (html_element
-    (html_start_tag
-      (html_tag_name)))
-  (text))
-
 ============================================
 Element with a single-quoted attribute value
 ============================================
@@ -152,6 +133,95 @@ Attribute names are case-insensitive
       (html_attribute
         (html_attribute_name)
         (html_attribute_value)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+============
+<br> element
+============
+
+line one<br>line two<br>line three
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)))
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name)))
+  (text))
+
+==============
+Unordered List
+==============
+
+<ul>
+  <li>Item one</li>
+  <li>Item two</li>
+</ul>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_element
+      (html_start_tag
+        (html_tag_name))
+      (text)
+      (html_end_tag
+        (html_tag_name)))
+    (text)
+    (html_element
+      (html_start_tag
+        (html_tag_name))
+      (text)
+      (html_end_tag
+        (html_tag_name)))
+    (text)
+    (html_end_tag
+      (html_tag_name)))
+  (text))
+
+============
+Ordered List
+============
+
+<ol>
+  <li>Item one</li>
+  <li>Item two</li>
+</ol>
+
+---
+
+(document
+  (text)
+  (html_element
+    (html_start_tag
+      (html_tag_name))
+    (text)
+    (html_element
+      (html_start_tag
+        (html_tag_name))
+      (text)
+      (html_end_tag
+        (html_tag_name)))
+    (text)
+    (html_element
+      (html_start_tag
+        (html_tag_name))
+      (text)
+      (html_end_tag
+        (html_tag_name)))
     (text)
     (html_end_tag
       (html_tag_name)))

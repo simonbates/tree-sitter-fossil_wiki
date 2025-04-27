@@ -17,6 +17,8 @@ static bool scan_for_verbatim_content(TSLexer *lexer) {
     int advance_count = 0;
     int position_in_end_tag = 0;
 
+    // Look for the verbatim end tag, which terminates the verbatim content
+
     while (true) {
         if (lexer->eof(lexer)) {
             return false;

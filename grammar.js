@@ -15,14 +15,19 @@ const supportedHTMLElements = [
   ["a", true],
   ["br", false],
   ["code", true],
+  ["em", true],
   ["h1", true],
   ["h2", true],
   ["h3", true],
   ["h4", true],
   ["h5", true],
   ["h6", true],
+  ["li", true],
+  ["ol", true],
   ["p", true],
-  ["title", true]
+  ["strong", true],
+  ["title", true],
+  ["ul", true]
 ];
 
 class HTMLElementRulesGenerator {
